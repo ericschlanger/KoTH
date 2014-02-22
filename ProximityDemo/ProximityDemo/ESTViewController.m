@@ -1,11 +1,4 @@
-//
-//  ESTViewController.m
-//  ProximityDemo
-//
-//  Created by Marcin Klimek on 9/26/13.
-//  Copyright (c) 2013 Estimote. All rights reserved.
-//
-
+#import <Parse/Parse.h>
 #import "ESTViewController.h"
 #import <ESTBeaconManager.h>
 
@@ -22,15 +15,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     
-    /////////////////////////////////////////////////////////////
-    // setup Estimote beacon manager
+    
+    NSTimer* myTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self
+                                                      selector: @selector(callAfterSixtySecond:) userInfo: nil repeats: YES];
+
+    
     
     self.beaconColors = @{@43241:@"Dark Blue",
                             @34523:@"Light Blue"};
-    
-    NSLog(@"%@",[self.beaconColors objectForKey:@43241]);
     
     // craete manager instance
     self.beaconManager = [[ESTBeaconManager alloc] init];
@@ -44,6 +37,24 @@
     // start looking for estimote beacons in region
     // when beacon ranged beaconManager:didRangeBeacons:inRegion: invoked
     [self.beaconManager startRangingBeaconsInRegion:region];
+    
+    
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:22];
+    [comps setMonth:2];
+    [comps setYear:2014];
+    [comps setHour:17];
+    [comps setMinute:32];
+    [comps setSecond:30];
+    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDate *endTime = [cal dateFromComponents:comps];
+    
+    [self startAtDate:endTime];
+    
+}
+
+-(void)printHello{
+    NSLog(@"hello");
 }
 
 -(void)beaconManager:(ESTBeaconManager *)manager
@@ -133,6 +144,41 @@
         self.distanceLabel.text = labelText;
         self.secondLabel.text = secondLabelText;
     }
+}
+
+-(void) callAfterSixtySecond:(NSTimer*) sender{
+    static int count = 1;
+    
+    @try {
+        
+        NSLog(@"triggred %d time",count);
+        
+        if (count == 10){
+            
+            [sender invalidate];
+            NSLog(@"invalidated");
+        }
+        
+    }
+    @catch (NSException *exception)
+    {
+        NSLog(@"%s\n exception: Name- %@ Reason->%@", __PRETTY_FUNCTION__,[exception name],[exception reason]);
+    }
+    @finally {
+        
+        count ++;
+    }
+}
+
+-(void)startAtDate:(NSDate *)date{
+    NSDate *startTime = [NSDate date];
+    
+    NSTimeInterval secs = [date timeIntervalSinceDate:startTime];
+    
+    NSLog(@"Time Interval: %f", secs);
+    
+    [self performSelector:@selector(printHello) withObject:Nil afterDelay:secs];
+    
 }
 
 - (void)didReceiveMemoryWarning

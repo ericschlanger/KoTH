@@ -1,18 +1,14 @@
-//
-//  ESTAppDelegate.m
-//  ProximityDemo
-//
-//  Created by Marcin Klimek on 9/26/13.
-//  Copyright (c) 2013 Estimote. All rights reserved.
-//
-
 #import "ESTAppDelegate.h"
+#import <Parse/Parse.h>
 
 @implementation ESTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    [Parse setApplicationId:@"liTDnLXKjMzKYYByRddGYmeN927qi7XyIFEucVYp"
+                  clientKey:@"TPZXTKcQJPlYVd9EjYlCDKUYfG9FjpSP8frGRIB5"];
+    
     return YES;
 }
 							

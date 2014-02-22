@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:DistanceDemo/DistanceDemo.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:ProximityDemo/ProximityDemo.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:NotificationDemo/NotificationDemo.xcodeproj">
    </FileRef>
 </Workspace>

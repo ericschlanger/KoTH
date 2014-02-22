@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07551E8B18B939F20025B3FB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07551E8A18B939F20025B3FB /* Parse.framework */; };
+		07551E8D18B93A940025B3FB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07551E8C18B93A940025B3FB /* AudioToolbox.framework */; };
+		07551E8F18B93A9B0025B3FB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07551E8E18B93A9B0025B3FB /* CFNetwork.framework */; };
+		07551E9118B93ABC0025B3FB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07551E9018B93ABC0025B3FB /* libz.dylib */; };
+		07551E9318B93AC40025B3FB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07551E9218B93AC40025B3FB /* MobileCoreServices.framework */; };
+		07551E9518B93ACA0025B3FB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07551E9418B93ACA0025B3FB /* QuartzCore.framework */; };
+		07551E9718B93AD10025B3FB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07551E9618B93AD10025B3FB /* Security.framework */; };
+		07551E9918B93AD70025B3FB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07551E9818B93AD70025B3FB /* StoreKit.framework */; };
+		07551E9C18B9436D0025B3FB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07551E9B18B9436D0025B3FB /* MainViewController.m */; };
+		07551EA218B9453C0025B3FB /* CreateLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07551EA118B9453C0025B3FB /* CreateLobbyViewController.m */; };
+		07551EA518B945840025B3FB /* LobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07551EA418B945840025B3FB /* LobbyViewController.m */; };
 		2F0CE7A0184CB0C2000E8805 /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0CE79F184CB0C2000E8805 /* libEstimoteSDK.a */; };
 		2FC6D3E617F421D2007D8573 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC6D3E517F421D2007D8573 /* Foundation.framework */; };
 		2FC6D3E817F421D2007D8573 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC6D3E717F421D2007D8573 /* CoreGraphics.framework */; };
@@ -38,6 +49,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07551E8A18B939F20025B3FB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		07551E8C18B93A940025B3FB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		07551E8E18B93A9B0025B3FB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		07551E9018B93ABC0025B3FB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		07551E9218B93AC40025B3FB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		07551E9418B93ACA0025B3FB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		07551E9618B93AD10025B3FB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		07551E9818B93AD70025B3FB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		07551E9A18B9436D0025B3FB /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		07551E9B18B9436D0025B3FB /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		07551EA018B9453C0025B3FB /* CreateLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateLobbyViewController.h; sourceTree = "<group>"; };
+		07551EA118B9453C0025B3FB /* CreateLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateLobbyViewController.m; sourceTree = "<group>"; };
+		07551EA318B945840025B3FB /* LobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LobbyViewController.h; sourceTree = "<group>"; };
+		07551EA418B945840025B3FB /* LobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LobbyViewController.m; sourceTree = "<group>"; };
 		2F0CE79F184CB0C2000E8805 /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = ../EstimoteSDK/libEstimoteSDK.a; sourceTree = "<group>"; };
 		2FC6D3E217F421D2007D8573 /* ProximityDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProximityDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC6D3E517F421D2007D8573 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,12 +93,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FC6D4C317F43606007D8573 /* SystemConfiguration.framework in Frameworks */,
+				07551E9918B93AD70025B3FB /* StoreKit.framework in Frameworks */,
+				07551E9718B93AD10025B3FB /* Security.framework in Frameworks */,
+				07551E9518B93ACA0025B3FB /* QuartzCore.framework in Frameworks */,
+				07551E9318B93AC40025B3FB /* MobileCoreServices.framework in Frameworks */,
+				07551E9118B93ABC0025B3FB /* libz.dylib in Frameworks */,
+				2FC6D4C517F4360A007D8573 /* CoreLocation.framework in Frameworks */,
+				2FC6D3E817F421D2007D8573 /* CoreGraphics.framework in Frameworks */,
+				07551E8F18B93A9B0025B3FB /* CFNetwork.framework in Frameworks */,
+				07551E8D18B93A940025B3FB /* AudioToolbox.framework in Frameworks */,
 				2F0CE7A0184CB0C2000E8805 /* libEstimoteSDK.a in Frameworks */,
 				2FC6D4C717F43610007D8573 /* CoreBluetooth.framework in Frameworks */,
-				2FC6D4C517F4360A007D8573 /* CoreLocation.framework in Frameworks */,
-				2FC6D4C317F43606007D8573 /* SystemConfiguration.framework in Frameworks */,
-				2FC6D3E817F421D2007D8573 /* CoreGraphics.framework in Frameworks */,
 				2FC6D3EA17F421D2007D8573 /* UIKit.framework in Frameworks */,
+				07551E8B18B939F20025B3FB /* Parse.framework in Frameworks */,
 				2FC6D3E617F421D2007D8573 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +146,14 @@
 		2FC6D3E417F421D2007D8573 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07551E9818B93AD70025B3FB /* StoreKit.framework */,
+				07551E9618B93AD10025B3FB /* Security.framework */,
+				07551E9418B93ACA0025B3FB /* QuartzCore.framework */,
+				07551E9218B93AC40025B3FB /* MobileCoreServices.framework */,
+				07551E9018B93ABC0025B3FB /* libz.dylib */,
+				07551E8E18B93A9B0025B3FB /* CFNetwork.framework */,
+				07551E8C18B93A940025B3FB /* AudioToolbox.framework */,
+				07551E8A18B939F20025B3FB /* Parse.framework */,
 				2F0CE79F184CB0C2000E8805 /* libEstimoteSDK.a */,
 				2FC6D4C617F43610007D8573 /* CoreBluetooth.framework */,
 				2FC6D4C417F4360A007D8573 /* CoreLocation.framework */,
@@ -128,9 +169,15 @@
 		2FC6D3EB17F421D2007D8573 /* ProximityDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2FC6D3F717F421D2007D8573 /* Main.storyboard */,
 				2FC6D3F417F421D2007D8573 /* ESTAppDelegate.h */,
 				2FC6D3F517F421D2007D8573 /* ESTAppDelegate.m */,
-				2FC6D3F717F421D2007D8573 /* Main.storyboard */,
+				07551E9A18B9436D0025B3FB /* MainViewController.h */,
+				07551E9B18B9436D0025B3FB /* MainViewController.m */,
+				07551EA018B9453C0025B3FB /* CreateLobbyViewController.h */,
+				07551EA118B9453C0025B3FB /* CreateLobbyViewController.m */,
+				07551EA318B945840025B3FB /* LobbyViewController.h */,
+				07551EA418B945840025B3FB /* LobbyViewController.m */,
 				2FC6D3FA17F421D2007D8573 /* ESTViewController.h */,
 				2FC6D3FB17F421D2007D8573 /* ESTViewController.m */,
 				2FC6D3FD17F421D2007D8573 /* Images.xcassets */,
@@ -268,7 +315,10 @@
 			files = (
 				2FC6D3F217F421D2007D8573 /* main.m in Sources */,
 				2FC6D3FC17F421D2007D8573 /* ESTViewController.m in Sources */,
+				07551EA218B9453C0025B3FB /* CreateLobbyViewController.m in Sources */,
 				2FC6D3F617F421D2007D8573 /* ESTAppDelegate.m in Sources */,
+				07551E9C18B9436D0025B3FB /* MainViewController.m in Sources */,
+				07551EA518B945840025B3FB /* LobbyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +445,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Eric/Downloads/iOS-SDK-master/ProximityDemo",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProximityDemo/ProximityDemo-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -417,6 +471,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Eric/Downloads/iOS-SDK-master/ProximityDemo",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProximityDemo/ProximityDemo-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
