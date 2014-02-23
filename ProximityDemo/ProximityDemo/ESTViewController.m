@@ -109,9 +109,6 @@
         // calculate and set new y position
         switch (self.selectedBeacon.proximity)
         {
-            case CLProximityUnknown:
-                labelText = [labelText stringByAppendingString: @"Unknown"];
-                break;
             case CLProximityImmediate:
                 labelText = [labelText stringByAppendingString: @"Immediate"];
                 if(currentHillID == [self.selectedBeacon.major integerValue]){
@@ -119,12 +116,6 @@
                     [self.scoreLabel setText:[NSString stringWithFormat:@"Your Score: %d",currentScore]];
                     NSLog(@"scoring at %@", [self.beaconColors objectForKey:[NSNumber numberWithInt:[self.selectedBeacon.major integerValue]]]);
                 }
-                break;
-            case CLProximityNear:
-                labelText = [labelText stringByAppendingString: @"Near"];
-                break;
-            case CLProximityFar:
-                labelText = [labelText stringByAppendingString: @"Far"];
                 break;
                 
             default:
@@ -134,9 +125,6 @@
         // calculate and set new y position
         switch (self.secondBeacon.proximity)
         {
-            case CLProximityUnknown:
-                secondLabelText = [secondLabelText stringByAppendingString: @"Unknown"];
-                break;
             case CLProximityImmediate:
                 secondLabelText = [secondLabelText stringByAppendingString: @"Immediate"];
                 if(currentHillID == [self.secondBeacon.major integerValue]){
@@ -144,12 +132,6 @@
                     [self.scoreLabel setText:[NSString stringWithFormat:@"Your Score: %d",currentScore]];
                     NSLog(@"scoring at %@", [self.beaconColors objectForKey:[NSNumber numberWithInt:[self.secondBeacon.major integerValue]]]);
                 }
-                break;
-            case CLProximityNear:
-                secondLabelText = [secondLabelText stringByAppendingString: @"Near"];
-                break;
-            case CLProximityFar:
-                secondLabelText = [secondLabelText stringByAppendingString: @"Far"];
                 break;
                 
             default:
