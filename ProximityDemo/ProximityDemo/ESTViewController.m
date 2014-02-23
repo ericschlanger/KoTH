@@ -1,6 +1,7 @@
 #import <Parse/Parse.h>
 #import "ESTViewController.h"
 #import <ESTBeaconManager.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface ESTViewController () <ESTBeaconManagerDelegate>
 
@@ -12,11 +13,16 @@
 
 @implementation ESTViewController{
     int currentHillID;
+    int currentScore;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    currentScore = 0;
+    
+    [_scoreLabel setText:@"Your Score: 0"];
     
     self.progression = @[@43241,@34523,@43241,@34523,@43241,@34523,@43241,@34523,@43241,@34523,@43241];
     
@@ -62,7 +68,7 @@
     
     if([beacons count] > 0)
     {
-        if(!self.selectedBeacon)
+        if(!self.selectedBeacon || !self.secondBeacon)
         {
             self.selectedBeacon = [beacons objectAtIndex:0];
             self.secondBeacon = [beacons objectAtIndex:1];
@@ -102,6 +108,8 @@
             case CLProximityImmediate:
                 labelText = [labelText stringByAppendingString: @"Immediate"];
                 if(currentHillID == [self.selectedBeacon.major integerValue]){
+                    currentScore++;
+                    [self.scoreLabel setText:[NSString stringWithFormat:@"Your Score: %d",currentScore]];
                     NSLog(@"scoring at %@", [self.beaconColors objectForKey:[NSNumber numberWithInt:[self.selectedBeacon.major integerValue]]]);
                 }
                 break;
@@ -125,6 +133,8 @@
             case CLProximityImmediate:
                 secondLabelText = [secondLabelText stringByAppendingString: @"Immediate"];
                 if(currentHillID == [self.secondBeacon.major integerValue]){
+                    currentScore++;
+                    [self.scoreLabel setText:[NSString stringWithFormat:@"Your Score: %d",currentScore]];
                     NSLog(@"scoring at %@", [self.beaconColors objectForKey:[NSNumber numberWithInt:[self.secondBeacon.major integerValue]]]);
                 }
                 break;
@@ -153,6 +163,7 @@
         
         currentHillID = [self.progression[count-1] integerValue];
         [self.currentHillLabel setText:[NSString stringWithFormat:@"Current Hill: %@", [self.beaconColors objectForKey:[NSNumber numberWithInt: currentHillID]]]];
+        [self vibratePhone];
         
         if (count == 10){
             
@@ -180,6 +191,10 @@
     
 //    [self performSelector:@selector(startGame) withObject:Nil afterDelay:secs];
     
+}
+
+-(void)vibratePhone{
+    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
 }
 
 - (void)didReceiveMemoryWarning

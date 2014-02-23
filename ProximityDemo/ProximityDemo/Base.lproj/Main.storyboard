@@ -128,6 +128,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Score: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hf-hb-gXO">
+                                <rect key="frame" x="79" y="527" width="176" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -135,6 +141,7 @@
                     <connections>
                         <outlet property="currentHillLabel" destination="Qto-0G-ENT" id="0Hf-Pu-UV5"/>
                         <outlet property="distanceLabel" destination="wSR-Cg-6M3" id="Jud-3J-hBg"/>
+                        <outlet property="scoreLabel" destination="9Hf-hb-gXO" id="cFU-sn-4NL"/>
                         <outlet property="secondLabel" destination="dkB-Vb-D9X" id="gEC-Rp-fjJ"/>
                     </connections>
                 </viewController>
