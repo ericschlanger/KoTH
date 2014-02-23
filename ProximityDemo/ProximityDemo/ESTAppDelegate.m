@@ -1,6 +1,8 @@
 #import "ESTAppDelegate.h"
 #import <Parse/Parse.h>
 
+#define UIAppDelegate ((ESTAppDelegate *)[UIApplication sharedApplication].delegate)
+
 @implementation ESTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

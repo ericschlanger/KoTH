@@ -18,6 +18,7 @@
 		07551E9C18B9436D0025B3FB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07551E9B18B9436D0025B3FB /* MainViewController.m */; };
 		07551EA218B9453C0025B3FB /* CreateLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07551EA118B9453C0025B3FB /* CreateLobbyViewController.m */; };
 		07551EA518B945840025B3FB /* LobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07551EA418B945840025B3FB /* LobbyViewController.m */; };
+		079868C018B9BCA900D9A8F3 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 079868BF18B9BCA900D9A8F3 /* ResultsViewController.m */; };
 		2F0CE7A0184CB0C2000E8805 /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0CE79F184CB0C2000E8805 /* libEstimoteSDK.a */; };
 		2FC6D3E617F421D2007D8573 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC6D3E517F421D2007D8573 /* Foundation.framework */; };
 		2FC6D3E817F421D2007D8573 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC6D3E717F421D2007D8573 /* CoreGraphics.framework */; };
@@ -63,6 +64,8 @@
 		07551EA118B9453C0025B3FB /* CreateLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateLobbyViewController.m; sourceTree = "<group>"; };
 		07551EA318B945840025B3FB /* LobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LobbyViewController.h; sourceTree = "<group>"; };
 		07551EA418B945840025B3FB /* LobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LobbyViewController.m; sourceTree = "<group>"; };
+		079868BE18B9BCA900D9A8F3 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
+		079868BF18B9BCA900D9A8F3 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
 		2F0CE79F184CB0C2000E8805 /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = ../EstimoteSDK/libEstimoteSDK.a; sourceTree = "<group>"; };
 		2FC6D3E217F421D2007D8573 /* ProximityDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProximityDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC6D3E517F421D2007D8573 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -180,6 +183,8 @@
 				07551EA418B945840025B3FB /* LobbyViewController.m */,
 				2FC6D3FA17F421D2007D8573 /* ESTViewController.h */,
 				2FC6D3FB17F421D2007D8573 /* ESTViewController.m */,
+				079868BE18B9BCA900D9A8F3 /* ResultsViewController.h */,
+				079868BF18B9BCA900D9A8F3 /* ResultsViewController.m */,
 				2FC6D3FD17F421D2007D8573 /* Images.xcassets */,
 				2FC6D3EC17F421D2007D8573 /* Supporting Files */,
 			);
@@ -317,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FC6D3F217F421D2007D8573 /* main.m in Sources */,
+				079868C018B9BCA900D9A8F3 /* ResultsViewController.m in Sources */,
 				2FC6D3FC17F421D2007D8573 /* ESTViewController.m in Sources */,
 				07551EA218B9453C0025B3FB /* CreateLobbyViewController.m in Sources */,
 				2FC6D3F617F421D2007D8573 /* ESTAppDelegate.m in Sources */,

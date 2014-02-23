@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *lobbyField;
 @property (weak, nonatomic) IBOutlet UITextField *playerName;
 
+@property (weak, nonatomic) IBOutlet UITextField *teamField;
 
 
 @end

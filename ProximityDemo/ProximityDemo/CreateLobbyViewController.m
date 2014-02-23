@@ -34,9 +34,7 @@
     lobby[@"lobbySize"] = [_lobbySize text];
     
     NSTimeInterval seconds = [[NSDate date] timeIntervalSince1970];
-    NSLog(@"current:%f",seconds);
-    NSLog(@"current+60:%f",seconds+60);
-    lobby[@"startTime"] = [NSNumber numberWithDouble:seconds+60];
+    lobby[@"startTime"] = [NSNumber numberWithDouble:seconds+10];
     
     [lobby saveInBackground];
     

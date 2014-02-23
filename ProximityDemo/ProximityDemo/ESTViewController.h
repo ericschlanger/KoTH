@@ -21,4 +21,8 @@
 
 @property (strong, nonatomic) NSNumber *startTime;
 
+@property (strong, nonatomic)NSString *teamName;
+
+@property (strong, nonatomic)NSString *playerName;
+
 @end

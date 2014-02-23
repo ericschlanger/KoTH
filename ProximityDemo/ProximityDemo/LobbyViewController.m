@@ -29,7 +29,7 @@
     
     [_lobbyField setDelegate:self];
     [_playerName setDelegate:self];
-    
+    [_teamField setDelegate:self];
    
     
 }
@@ -66,11 +66,25 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
+    [self postPlayer];
 }
+
+-(void)postPlayer{
+    PFObject *player = [PFObject objectWithClassName:@"Player"];
+    player[@"Name"] = [_playerName text];
+    player[@"Team"] = [_teamField text];
+    player[@"Lobby"] = [_lobbyField text];
+    
+    
+    [player saveInBackground];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"startGame"]){
         ESTViewController *destination = [segue destinationViewController];
         [destination setStartTime:startTime];
+        [destination setTeamName:[_teamField text]];
+        [destination setPlayerName:[_playerName text]];
     }
 }
 

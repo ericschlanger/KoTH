@@ -111,7 +111,7 @@
             </objects>
             <point key="canvasLocation" x="923" y="74"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - Play!-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ESTViewController" sceneMemberID="viewController">
@@ -151,17 +151,49 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BnP-Yr-gtk"/>
+                    <navigationItem key="navigationItem" title="Play!" id="BnP-Yr-gtk"/>
                     <connections>
                         <outlet property="currentHillLabel" destination="Qto-0G-ENT" id="0Hf-Pu-UV5"/>
                         <outlet property="distanceLabel" destination="wSR-Cg-6M3" id="Jud-3J-hBg"/>
                         <outlet property="scoreLabel" destination="9Hf-hb-gXO" id="cFU-sn-4NL"/>
                         <outlet property="secondLabel" destination="dkB-Vb-D9X" id="gEC-Rp-fjJ"/>
+                        <segue destination="sfL-s3-DrP" kind="push" identifier="endGame" id="BfJ-LG-pAH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1565" y="801"/>
+            <point key="canvasLocation" x="1532" y="813"/>
+        </scene>
+        <!--Results View Controller - Results-->
+        <scene sceneID="FVk-41-q0R">
+            <objects>
+                <viewController id="sfL-s3-DrP" customClass="ResultsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nHX-Y4-nVw"/>
+                        <viewControllerLayoutGuide type="bottom" id="kos-52-HAe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LIt-ch-gka">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAY-jH-vUj">
+                                <rect key="frame" x="139" y="135" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Results" id="4bu-ay-VVI"/>
+                    <connections>
+                        <outlet property="label" destination="dAY-jH-vUj" id="JTI-rB-NUM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EYY-Zj-R4m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1978" y="813"/>
         </scene>
         <!--Lobby View Controller - Join Lobby-->
         <scene sceneID="Tdh-6B-B8G">
@@ -187,42 +219,40 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hTH-FB-rBD">
-                                <rect key="frame" x="99" y="260" width="123" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Red"/>
-                                    <segment title="Blue"/>
-                                </segments>
-                            </segmentedControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOo-d8-xcK">
-                                <rect key="frame" x="140" y="221" width="41" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Team Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOo-d8-xcK">
+                                <rect key="frame" x="114" y="220" width="92" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdp-Kv-vQz">
-                                <rect key="frame" x="111" y="349" width="98" height="21"/>
+                                <rect key="frame" x="111" y="328" width="98" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XV0-up-5a8">
-                                <rect key="frame" x="20" y="386" width="280" height="30"/>
+                                <rect key="frame" x="20" y="370" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjx-Wh-E6k">
-                                <rect key="frame" x="137" y="483" width="46" height="30"/>
+                                <rect key="frame" x="126" y="455" width="68" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Start!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="registerPlayer:" destination="hw5-Qh-15C" eventType="touchUpInside" id="lOU-bm-Lcn"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3UW-f1-xlg">
+                                <rect key="frame" x="20" y="261" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -230,6 +260,7 @@
                     <connections>
                         <outlet property="lobbyField" destination="UF8-Cb-SfL" id="9no-cy-OWi"/>
                         <outlet property="playerName" destination="XV0-up-5a8" id="XjJ-YY-0OW"/>
+                        <outlet property="teamField" destination="3UW-f1-xlg" id="iOC-1b-RK4"/>
                         <segue destination="vXZ-lx-hvc" kind="push" identifier="startGame" id="Ho4-gV-DgJ"/>
                     </connections>
                 </viewController>

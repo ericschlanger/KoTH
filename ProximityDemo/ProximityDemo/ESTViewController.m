@@ -2,6 +2,7 @@
 #import "ESTViewController.h"
 #import <ESTBeaconManager.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "ResultsViewController.h"
 
 @interface ESTViewController () <ESTBeaconManagerDelegate>
 
@@ -16,6 +17,7 @@
 @implementation ESTViewController{
     int currentHillID;
     int currentScore;
+    NSTimer *timer;
 }
 
 - (void)viewDidLoad
@@ -23,10 +25,6 @@
     [super viewDidLoad];
     
     currentScore = 0;
-    
-    NSLog(@"received starttime: %@", _startTime);
-    NSLog(@"current time: %@",[NSDate date]);
-    
     
     [_scoreLabel setText:@"Your Score: 0"];
     
@@ -64,7 +62,7 @@
 }
 
 -(void)startGame{
-    NSTimer* myTimer = [NSTimer scheduledTimerWithTimeInterval: 4 target: self
+    timer = [NSTimer scheduledTimerWithTimeInterval: 4 target: self
                                                       selector: @selector(callAfterSixtySecond:) userInfo: nil repeats: YES];
 }
 
@@ -169,10 +167,10 @@
         [self.currentHillLabel setText:[NSString stringWithFormat:@"Current Hill: %@", [self.beaconColors objectForKey:[NSNumber numberWithInt: currentHillID]]]];
         [self vibratePhone];
         
-        if (count == 10){
+        if (count == 4){
             
-            [sender invalidate];
-            NSLog(@"invalidated");
+            [timer invalidate];
+            [self performSegueWithIdentifier:@"endGame" sender:self];
         }
     }
     @catch (NSException *exception){
@@ -184,6 +182,15 @@
     }
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"endGame"]) {
+        ResultsViewController *destination = [segue destinationViewController];
+        [destination setTeamName:_teamName];
+        [destination setPlayerName:_playerName];
+        [destination setScore:[NSNumber numberWithInt:currentScore]];
+    }
+}
+
 -(void)startAtDate:(NSNumber*)time{
     
     
@@ -191,7 +198,6 @@
     
     NSTimeInterval secs = [time doubleValue] - current;
     
-    NSLog(@"Time Interval: %f", secs);
     
     [self performSelector:@selector(startGame) withObject:Nil afterDelay:secs];
 
