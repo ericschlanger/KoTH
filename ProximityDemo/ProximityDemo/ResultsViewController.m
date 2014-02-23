@@ -20,11 +20,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"team : %@, player: %@, lobby: %@",_teamName,_playerName,_lobbyName);
 	
     [self.label setText:_teamName];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Player"];
     [query whereKey:@"Name" equalTo:_playerName];
+    [query whereKey:@"Lobby" equalTo:_lobbyName];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             
@@ -62,9 +65,12 @@
             for (PFObject *object in objects) {
                 if([[tally objectForKey:@"teamOne"] isEqualToString:@""]){
                     [tally setObject:object[@"Team"] forKey:@"teamOne"];
+                    NSLog(@"setting team one as %@", object[@"Team"]);
                 }else if([[tally objectForKey:@"teamTwo"] isEqualToString:@""]){
-                    [tally setObject:object[@"Team"] forKey:@"teamTwo"];
-                }
+                    if(!([object[@"Team"] isEqualToString:[tally objectForKey:@"teamOne"]])){
+                        [tally setObject:object[@"Team"] forKey:@"teamTwo"];
+                    }
+                }else{NSLog(@"both were assigned");}
             }
             
             //log scores for names
@@ -84,6 +90,35 @@
             }
         
             NSLog(@"Final Tally: %@",tally);
+            
+            //show the alert of who won
+            NSString *message =@"";
+            
+            NSNumber *tOne = [tally objectForKey:@"teamOneScore"];
+            NSNumber *tTwo = [tally objectForKey:@"teamTwoScore"];
+            
+            NSLog(@"tOne value: %d, tTwo val: %d", [tOne intValue], [tTwo intValue]);
+            
+            if([_teamName isEqualToString:[tally objectForKey:@"teamOne"]]){
+                NSLog(@"Team one on this phone.");
+                if([tOne intValue] > [tTwo intValue]){
+                    message = [NSString stringWithFormat:@"Congrats %@ from %@, You guys won! Final: %d - %d", _playerName, _teamName, [tOne intValue], [tTwo intValue] ];
+                } else {
+                    message = [NSString stringWithFormat:@"Sorry %@ from %@, You guys lost! Final: %d - %d", _playerName, _teamName, [tTwo intValue], [tOne intValue] ];
+                }
+            }
+            else {//they are on team two
+                NSLog(@"team two on this phone.");
+                if([tOne intValue] < [tTwo intValue]){
+                    message = [NSString stringWithFormat:@"Congrats %@ from %@, You guys won! Final: %d - %d", _playerName, _teamName, [tOne intValue], [tTwo intValue] ];
+                } else {
+                    message = [NSString stringWithFormat:@"Sorry %@ from %@, You guys lost! Final: %d - %d", _playerName, _teamName, [tTwo intValue], [tOne intValue] ];
+                }
+            }
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Results" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            
+            [alert show];
             
         } else {
             // Log details of the failure
