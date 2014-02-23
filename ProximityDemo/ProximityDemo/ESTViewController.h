@@ -25,4 +25,6 @@
 
 @property (strong, nonatomic)NSString *playerName;
 
+@property (strong, nonatomic)NSString *lobbyName;
+
 @end

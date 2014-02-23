@@ -9,4 +9,6 @@
 
 @property (nonatomic, strong) NSNumber * score;
 
+@property (nonatomic, strong)NSString *lobbyName;
+
 @end

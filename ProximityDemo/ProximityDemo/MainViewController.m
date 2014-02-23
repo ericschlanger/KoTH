@@ -1,10 +1,4 @@
-//
-//  MainViewController.m
-//  ProximityDemo
-//
-//  Created by Eric Schlanger on 2/22/14.
-//  Copyright (c) 2014 Estimote. All rights reserved.
-//
+#include <Parse/Parse.h>
 
 #import "MainViewController.h"
 
@@ -27,7 +21,6 @@
 {
     [super viewDidLoad];
     
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

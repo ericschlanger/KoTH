@@ -71,9 +71,15 @@
     if([beacons count] > 0)
     {
         if(!self.selectedBeacon || !self.secondBeacon || !self.thirdBeacon){
-            self.selectedBeacon = [beacons objectAtIndex:0];
-            self.secondBeacon = [beacons objectAtIndex:1];
-            self.thirdBeacon = [beacons objectAtIndex:2];
+            @try {
+                self.selectedBeacon = [beacons objectAtIndex:0];
+                self.secondBeacon = [beacons objectAtIndex:1];
+                self.thirdBeacon = [beacons objectAtIndex:2];
+            }
+            @catch (NSException *exception) {
+                
+            }
+            
         }
         else
         {
@@ -188,6 +194,7 @@
         [destination setTeamName:_teamName];
         [destination setPlayerName:_playerName];
         [destination setScore:[NSNumber numberWithInt:currentScore]];
+        [destination setLobbyName:_lobbyName];
     }
 }
 

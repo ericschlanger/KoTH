@@ -85,6 +85,7 @@
         [destination setStartTime:startTime];
         [destination setTeamName:[_teamField text]];
         [destination setPlayerName:[_playerName text]];
+        [destination setLobbyName:[_lobbyField text]];
     }
 }
 
