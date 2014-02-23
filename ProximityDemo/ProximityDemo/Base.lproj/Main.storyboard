@@ -82,15 +82,29 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hw5-Qh-15C" kind="push" identifier="createdLobby" id="csT-QE-ud8"/>
+                                    <action selector="finish:" destination="wTg-cZ-TyQ" eventType="touchUpInside" id="kNw-p2-YFH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lobby Size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hoa-2i-o3n">
+                                <rect key="frame" x="117" y="231" width="86" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2c8-tD-qno">
+                                <rect key="frame" x="20" y="281" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Lobby" id="gIP-oC-KAA"/>
                     <connections>
                         <outlet property="lobbyName" destination="K6f-fp-2AU" id="SC4-9s-JSA"/>
+                        <outlet property="lobbySize" destination="2c8-tD-qno" id="arM-jr-q6I"/>
+                        <segue destination="hw5-Qh-15C" kind="push" identifier="createdLobby" id="b5N-qw-2q2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wyB-Cw-hvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -199,16 +213,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Say-YJ-D3Z">
-                                <rect key="frame" x="80" y="481" width="161" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjx-Wh-E6k">
+                                <rect key="frame" x="137" y="483" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.2588235438" green="0.82745105029999999" blue="0.45490199329999997" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="Start Conquering!">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" red="1" green="0.97881537129999996" blue="0.99317374889999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="push" id="mm4-Fj-5F2"/>
+                                    <action selector="registerPlayer:" destination="hw5-Qh-15C" eventType="touchUpInside" id="lOU-bm-Lcn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -217,6 +229,8 @@
                     <navigationItem key="navigationItem" title="Join Lobby" id="Bez-KF-TY4"/>
                     <connections>
                         <outlet property="lobbyField" destination="UF8-Cb-SfL" id="9no-cy-OWi"/>
+                        <outlet property="playerName" destination="XV0-up-5a8" id="XjJ-YY-0OW"/>
+                        <segue destination="vXZ-lx-hvc" kind="push" identifier="startGame" id="Ho4-gV-DgJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tkw-lA-1RZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -248,6 +262,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="W3E-fS-LdJ"/>
+        <segue reference="b5N-qw-2q2"/>
     </inferredMetricsTieBreakers>
 </document>

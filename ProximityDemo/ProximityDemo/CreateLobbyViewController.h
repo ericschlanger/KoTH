@@ -10,5 +10,6 @@
 
 @interface CreateLobbyViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *lobbyName;
+@property (weak, nonatomic) IBOutlet UITextField *lobbySize;
 
 @end

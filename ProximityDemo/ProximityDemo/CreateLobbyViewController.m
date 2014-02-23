@@ -20,21 +20,34 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self.lobbyName setDelegate:self];
+    [self.lobbySize setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)finish:(id)sender {
+    PFObject *lobby = [PFObject objectWithClassName:@"Lobby"];
+    lobby[@"Name"] = [_lobbyName text];
+    lobby[@"Progression"] = @[@43241,@34523,@42453,@43241,@34523,@42453,@43241,@34523,@42453];
+    lobby[@"lobbySize"] = [_lobbySize text];
+    
+    NSTimeInterval seconds = [[NSDate date] timeIntervalSince1970];
+    NSLog(@"current:%f",seconds);
+    NSLog(@"current+60:%f",seconds+60);
+    lobby[@"startTime"] = [NSNumber numberWithDouble:seconds+60];
+    
+    [lobby saveInBackground];
+    
+    [self performSegueWithIdentifier:@"createdLobby" sender:self];
+}
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"createdLobby"]){
         
-        PFObject *lobby = [PFObject objectWithClassName:@"Lobby"];
-        lobby[@"Name"] = [_lobbyName text];
-        lobby[@"Progression"] = @[@"blue",@"green",@"black"];
-        //lobby[@"cheatMode"] = @NO;
-        [lobby saveInBackground];
+        
         
         LobbyViewController *vc = [segue destinationViewController];
         

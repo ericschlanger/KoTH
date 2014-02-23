@@ -8,6 +8,8 @@
 @property (nonatomic, strong) ESTBeaconManager* beaconManager;
 @property (nonatomic, strong) ESTBeacon* selectedBeacon;
 @property (nonatomic, strong) ESTBeacon* secondBeacon;
+@property (nonatomic, strong) ESTBeacon* thirdBeacon;
+
 
 @end
 
@@ -22,12 +24,17 @@
     
     currentScore = 0;
     
+    NSLog(@"received starttime: %@", _startTime);
+    NSLog(@"current time: %@",[NSDate date]);
+    
+    
     [_scoreLabel setText:@"Your Score: 0"];
     
-    self.progression = @[@43241,@34523,@43241,@34523,@43241,@34523,@43241,@34523,@43241,@34523,@43241];
+    self.progression = @[@43241,@34523,@42453,@43241,@34523,@42453,@43241,@34523,@42453];
     
-    self.beaconColors = @{@43241:@"Dark Blue",
-                            @34523:@"Light Blue"};
+    self.beaconColors = @{@43241:@"Purple",
+                        @34523:@"Sea Green",
+                        @42453:@"Sky Blue"};
     
     // craete manager instance
     self.beaconManager = [[ESTBeaconManager alloc] init];
@@ -42,21 +49,18 @@
     // when beacon ranged beaconManager:didRangeBeacons:inRegion: invoked
     [self.beaconManager startRangingBeaconsInRegion:region];
     
+//    
+//    NSDateComponents *comps = [[NSDateComponents alloc] init];
+//    [comps setDay:22];
+//    [comps setMonth:2];
+//    [comps setYear:2014];
+//    [comps setHour:17];
+//    [comps setMinute:32];
+//    [comps setSecond:30];
+//    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+//    NSDate *endTime = [cal dateFromComponents:comps];
     
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    [comps setDay:22];
-    [comps setMonth:2];
-    [comps setYear:2014];
-    [comps setHour:17];
-    [comps setMinute:32];
-    [comps setSecond:30];
-    NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDate *endTime = [cal dateFromComponents:comps];
-    
-    [self startAtDate:endTime];
-    
-    [self startGame];
-    
+    [self startAtDate:_startTime];
 }
 
 -(void)startGame{
@@ -68,10 +72,10 @@
     
     if([beacons count] > 0)
     {
-        if(!self.selectedBeacon || !self.secondBeacon)
-        {
+        if(!self.selectedBeacon || !self.secondBeacon || !self.thirdBeacon){
             self.selectedBeacon = [beacons objectAtIndex:0];
             self.secondBeacon = [beacons objectAtIndex:1];
+            self.thirdBeacon = [beacons objectAtIndex:2];
         }
         else
         {
@@ -88,6 +92,9 @@
         
         int firstColor = [self.selectedBeacon.major integerValue];
         int secondColor = [self.secondBeacon.major integerValue];
+        int thirdColor = [self.thirdBeacon.major integerValue];
+        
+//        NSLog(@"first major: %@\nSecond Major: %@\n Third Major:%@",self.selectedBeacon.major,self.secondBeacon.major, self.thirdBeacon.major);
         
         NSString* labelText = [NSString stringWithFormat:
                                @"%@ Hill \nRegion: ",
@@ -149,6 +156,21 @@
                 break;
         }
         
+        switch (self.thirdBeacon.proximity)
+        {
+            case CLProximityImmediate:
+                //secondLabelText = [secondLabelText stringByAppendingString: @"Immediate"];
+                if(currentHillID == [self.thirdBeacon.major integerValue]){
+                    currentScore++;
+                    [self.scoreLabel setText:[NSString stringWithFormat:@"Your Score: %d",currentScore]];
+                    NSLog(@"scoring at %@", [self.beaconColors objectForKey:[NSNumber numberWithInt:[self.thirdBeacon.major integerValue]]]);
+                }
+                break;
+            
+            default:
+                break;
+        }
+        
         self.distanceLabel.text = labelText;
         self.secondLabel.text = secondLabelText;
     }
@@ -170,10 +192,8 @@
             [sender invalidate];
             NSLog(@"invalidated");
         }
-        
     }
-    @catch (NSException *exception)
-    {
+    @catch (NSException *exception){
         NSLog(@"%s\n exception: Name- %@ Reason->%@", __PRETTY_FUNCTION__,[exception name],[exception reason]);
     }
     @finally {
@@ -182,15 +202,17 @@
     }
 }
 
--(void)startAtDate:(NSDate *)date{
-    NSDate *startTime = [NSDate date];
+-(void)startAtDate:(NSNumber*)time{
     
-    NSTimeInterval secs = [date timeIntervalSinceDate:startTime];
+    
+    NSTimeInterval current = [[NSDate date] timeIntervalSince1970];
+    
+    NSTimeInterval secs = [time doubleValue] - current;
     
     NSLog(@"Time Interval: %f", secs);
     
-//    [self performSelector:@selector(startGame) withObject:Nil afterDelay:secs];
-    
+    [self performSelector:@selector(startGame) withObject:Nil afterDelay:secs];
+
 }
 
 -(void)vibratePhone{

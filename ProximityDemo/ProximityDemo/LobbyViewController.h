@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LobbyViewController : UIViewController
+@interface LobbyViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong,nonatomic)NSString *lobbyName;
 @property (weak, nonatomic) IBOutlet UITextField *lobbyField;
+@property (weak, nonatomic) IBOutlet UITextField *playerName;
+
+
 
 @end

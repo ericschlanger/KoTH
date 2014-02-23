@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ESTViewController : UIViewController
+@interface ESTViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutlet UILabel* distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondLabel;
@@ -18,5 +18,7 @@
 @property (strong, nonatomic) NSDictionary *beaconColors;
 
 @property (strong, nonatomic) NSArray *progression;
+
+@property (strong, nonatomic) NSNumber *startTime;
 
 @end
