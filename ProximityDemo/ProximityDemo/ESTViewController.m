@@ -10,17 +10,15 @@
 
 @end
 
-@implementation ESTViewController
+@implementation ESTViewController{
+    int currentHillID;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    
-    NSTimer* myTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self
-                                                      selector: @selector(callAfterSixtySecond:) userInfo: nil repeats: YES];
-
-    
+    self.progression = @[@43241,@34523,@43241,@34523,@43241,@34523,@43241,@34523,@43241,@34523,@43241];
     
     self.beaconColors = @{@43241:@"Dark Blue",
                             @34523:@"Light Blue"};
@@ -51,22 +49,21 @@
     
     [self startAtDate:endTime];
     
+    [self startGame];
+    
 }
 
--(void)printHello{
-    NSLog(@"hello");
+-(void)startGame{
+    NSTimer* myTimer = [NSTimer scheduledTimerWithTimeInterval: 4 target: self
+                                                      selector: @selector(callAfterSixtySecond:) userInfo: nil repeats: YES];
 }
 
--(void)beaconManager:(ESTBeaconManager *)manager
-     didRangeBeacons:(NSArray *)beacons
-            inRegion:(ESTBeaconRegion *)region
-{
+-(void)beaconManager:(ESTBeaconManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(ESTBeaconRegion *)region {
+    
     if([beacons count] > 0)
     {
-        
         if(!self.selectedBeacon)
         {
-            // initialy pick closest beacon
             self.selectedBeacon = [beacons objectAtIndex:0];
             self.secondBeacon = [beacons objectAtIndex:1];
         }
@@ -82,11 +79,6 @@
                 }
             }
         }
-        
-        
-        
-        // beacon array is sorted based on distance
-        // closest beacon is the first one
         
         int firstColor = [self.selectedBeacon.major integerValue];
         int secondColor = [self.secondBeacon.major integerValue];
@@ -109,6 +101,9 @@
                 break;
             case CLProximityImmediate:
                 labelText = [labelText stringByAppendingString: @"Immediate"];
+                if(currentHillID == [self.selectedBeacon.major integerValue]){
+                    NSLog(@"scoring at %@", [self.beaconColors objectForKey:[NSNumber numberWithInt:[self.selectedBeacon.major integerValue]]]);
+                }
                 break;
             case CLProximityNear:
                 labelText = [labelText stringByAppendingString: @"Near"];
@@ -129,6 +124,9 @@
                 break;
             case CLProximityImmediate:
                 secondLabelText = [secondLabelText stringByAppendingString: @"Immediate"];
+                if(currentHillID == [self.secondBeacon.major integerValue]){
+                    NSLog(@"scoring at %@", [self.beaconColors objectForKey:[NSNumber numberWithInt:[self.secondBeacon.major integerValue]]]);
+                }
                 break;
             case CLProximityNear:
                 secondLabelText = [secondLabelText stringByAppendingString: @"Near"];
@@ -152,6 +150,9 @@
     @try {
         
         NSLog(@"triggred %d time",count);
+        
+        currentHillID = [self.progression[count-1] integerValue];
+        [self.currentHillLabel setText:[NSString stringWithFormat:@"Current Hill: %@", [self.beaconColors objectForKey:[NSNumber numberWithInt: currentHillID]]]];
         
         if (count == 10){
             
@@ -177,7 +178,7 @@
     
     NSLog(@"Time Interval: %f", secs);
     
-    [self performSelector:@selector(printHello) withObject:Nil afterDelay:secs];
+//    [self performSelector:@selector(startGame) withObject:Nil afterDelay:secs];
     
 }
 

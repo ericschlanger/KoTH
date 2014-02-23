@@ -122,11 +122,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Hill: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qto-0G-ENT">
+                                <rect key="frame" x="37" y="482" width="247" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="BnP-Yr-gtk"/>
                     <connections>
+                        <outlet property="currentHillLabel" destination="Qto-0G-ENT" id="0Hf-Pu-UV5"/>
                         <outlet property="distanceLabel" destination="wSR-Cg-6M3" id="Jud-3J-hBg"/>
                         <outlet property="secondLabel" destination="dkB-Vb-D9X" id="gEC-Rp-fjJ"/>
                     </connections>
@@ -234,6 +241,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="csT-QE-ud8"/>
+        <segue reference="W3E-fS-LdJ"/>
     </inferredMetricsTieBreakers>
 </document>

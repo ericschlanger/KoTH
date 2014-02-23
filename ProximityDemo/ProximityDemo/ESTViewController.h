@@ -12,7 +12,10 @@
 
 @property (nonatomic, strong) IBOutlet UILabel* distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentHillLabel;
 
 @property (strong, nonatomic) NSDictionary *beaconColors;
+
+@property (strong, nonatomic) NSArray *progression;
 
 @end
