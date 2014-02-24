@@ -2,7 +2,6 @@
 #import "ResultsViewController.h"
 
 @interface ResultsViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
 
@@ -23,7 +22,6 @@
     
     NSLog(@"team : %@, player: %@, lobby: %@",_teamName,_playerName,_lobbyName);
 	
-    [self.label setText:_teamName];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Player"];
     [query whereKey:@"Name" equalTo:_playerName];

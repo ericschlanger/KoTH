@@ -176,20 +176,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAY-jH-vUj">
-                                <rect key="frame" x="139" y="135" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calculating Final Results" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHJ-nP-CgU">
+                                <rect key="frame" x="66" y="258" width="189" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Results" id="4bu-ay-VVI"/>
-                    <connections>
-                        <outlet property="label" destination="dAY-jH-vUj" id="JTI-rB-NUM"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYY-Zj-R4m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -262,6 +258,7 @@
                     <connections>
                         <outlet property="lobbyField" destination="UF8-Cb-SfL" id="9no-cy-OWi"/>
                         <outlet property="playerName" destination="XV0-up-5a8" id="XjJ-YY-0OW"/>
+                        <outlet property="startButton" destination="jjx-Wh-E6k" id="GhD-KP-74a"/>
                         <outlet property="teamField" destination="3UW-f1-xlg" id="iOC-1b-RK4"/>
                         <segue destination="vXZ-lx-hvc" kind="push" identifier="startGame" id="Ho4-gV-DgJ"/>
                     </connections>

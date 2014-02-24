@@ -1,6 +1,10 @@
 # Xcode
 .DS_Store
+<<<<<<< HEAD
 build/
+=======
+*/build/*
+>>>>>>> 98dcea7c076fcd886a77f5e118bf0be361ee0588
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -14,3 +18,11 @@ profile
 *.moved-aside
 DerivedData
 .idea/
+<<<<<<< HEAD
+=======
+*.hmap
+*.xccheckout
+
+#CocoaPods
+Pods
+>>>>>>> 98dcea7c076fcd886a77f5e118bf0be361ee0588

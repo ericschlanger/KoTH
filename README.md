@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 EstimoteSDK for iOS 7
 =======
 
@@ -51,3 +52,9 @@ Changelog
 -------
 
 To see what has changed in recent versions of Estimote SDK, see the [CHANGELOG](https://github.com/Estimote/iOS-SDK/blob/master/CHANGELOG.md).
+=======
+KoTH
+====
+
+An iBeacon based King of the Hill Game
+>>>>>>> 98dcea7c076fcd886a77f5e118bf0be361ee0588

@@ -8,6 +8,7 @@
 
 @implementation LobbyViewController{
     __block NSNumber *startTime;
+    __weak IBOutlet UIButton *startButton;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -41,6 +42,9 @@
 }
 
 - (IBAction)registerPlayer:(id)sender {
+    
+    [startButton setEnabled:NO];
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Lobby"];
     [query whereKey:@"Name" equalTo:[self.lobbyField text]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

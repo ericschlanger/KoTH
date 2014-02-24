@@ -173,7 +173,7 @@
         [self.currentHillLabel setText:[NSString stringWithFormat:@"Current Hill: %@", [self.beaconColors objectForKey:[NSNumber numberWithInt: currentHillID]]]];
         [self vibratePhone];
         
-        if (count == 4){
+        if (count == 6){
             
             [timer invalidate];
             [self performSegueWithIdentifier:@"endGame" sender:self];
